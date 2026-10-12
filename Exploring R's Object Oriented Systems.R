@@ -9,7 +9,7 @@ summary(mtcars)
 plot(mtcars$mpg)
 
 # 3. Explore S3 vs S4
-# S3
+# S3 Obj
 s3_obj <- list(name = "Alyssa", age = 24, GPA = 2.32)
 class(s3_obj) <- "student_s3"
 print(s3_obj)
@@ -24,7 +24,7 @@ print.student_s3 <- function(x, ...) {
 }
 print(s3_obj)
 
-# S4
+# S4 Obj
 setClass("student_s4", slots = c(name = "character", age = "numeric", GPA = "numeric"))
 s4_obj <- new("student_s4", name = "Alyssa", age = 29, GPA = 2.32)
 print(s4_obj)
