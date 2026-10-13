@@ -3,8 +3,7 @@
 student6 <- read.table(file.choose(), header = TRUE, stringsAsFactors = FALSE, sep = ",")
 
 # Load plyr and compute the mean of Grade by Sex
-install.packages("plyr")
-library(plyr)
+
 gender_mean <- ddply(
   student6,
   "Sex", 
