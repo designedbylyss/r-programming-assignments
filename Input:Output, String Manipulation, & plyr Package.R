@@ -44,3 +44,9 @@ write.csv(
   row.names = FALSE
 )
 
+# Check that all three output files exist
+file.exists(c(
+  "gender_mean.txt",
+  "i_students.csv",
+  "i_students_full.csv"
+))
