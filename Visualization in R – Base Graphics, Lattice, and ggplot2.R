@@ -11,9 +11,9 @@ plot(Fatalities$youngdrivers, Fatalities$fatal,
      ylab = "Traffic Fatalalities")
 
 # Histogram
-hist(Fatalities$fatal,
-     main = "Base: Distribution of Traffic Fatalalities",
-     xlab = "Traffic Fatalalities")
+hist(Fatalities$youngdrivers,
+     main = "Base: Distribution of Young Drivers",
+     xlab = "Young Drivers")
 
 # 2. Lattic Graphics
 library(lattice)

@@ -1,0 +1,83 @@
+---
+title: "My R Markdown Primer"
+author: "Alyssa Hone"
+date: "2026-11-16"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+R Markdown is a tool in RStudio that allows users to combine written text, R code, mathematical expressions, and visualizations into one document. Instead of writing a report separately and copying and pasting results from R, R Markdown allows everything to be included in the same file. When the document is knitted, the R code runs and produces an organized report with the results included. 
+
+R Markdown is useful for data analysis because it makes it easier to explain what the code is doing while showing the actual results. It can also be used to create HTML documents, PDFs, and Word documents. 
+
+## Working with Data in R Markdown
+
+One of the main advantages of R Markdown is that it allows you to explain your analysis and include code in the same document. For this example, I am using the Fatalities dataset from the AER package. This dataset includes information about traffic fatalities and different factors that may influence them. 
+
+I am interested in looking at the relationship between the percentage of young drivers and traffic fatalities. Using R Markdown makes it possible to describe the variables, run the analysis, and display a visualization without having to create separate documents. 
+
+## Mathematical Expressions
+
+R Markdown also supports mathematical expressions using LaTeX. This can be helpful when explaining statistical concepts or including formulas in a report. 
+
+For example, a basic linear equation can be written as $\apha + \beta = \gamma$. 
+
+A simple linear regression equation can be written as:
+
+$$
+Y = \beta_0 + \beta_1X + \epsilon
+$$
+
+In this equation, $Y$ represents the dependent variable, $X$ represents the independent variable, $\beta_0$ is the intercept, $\beta_1$ is the coefficient, and $\epsilon$ represents the error term. This type of equation can be used to describe the relationship between two variables. 
+
+## Loading the Dataset and Exploring the Data
+
+The first step is loading the necessary packages and dataset. The AER package contains the Fatalities dataset, while ggplot2 will be used to create a visualization. 
+
+# Load required packages
+library(AER)
+library(ggplot2)
+
+# Load the Fatalities dataset
+data("Fatalities")
+
+# View the first few rows 
+head(Fatalities)
+
+After loading the dataset, I can use summary statistics to get a better understanding of the variables. The summary function provides information such as the minimum, maximum, median, and mean values. 
+
+# Summary statistics for selected variables
+summary(Fatalities[, c("youngdrivers", "fatal")])
+
+# Calculate the mean number of traffic fatalities
+mean(Fatalities$fatal, na.rm = TRUE)
+
+# Calculate the mean percentage of young drivers
+mean(Fatalities$youngdrivers, na.rm = TRUE)
+
+These statistics provide a starting point for understanding the dataset. Looking at the averages and ranges can help identify patterns and give more context before creating visualizations. 
+
+## Creating a Visualization 
+
+Another useful feature of R Markdown is the ability to include graphs directly in the report. The following code uses ggplot2 to create a scatter plot comparing young drivers and traffic fatalities. 
+
+ggplot(Fatalities, aes(x = youngdrivers, y = fatal)) + geom_point(color = "steelblue", alpha = 0.6) + geom_smooth(method = "lm", se = TRUE, color = "darkred") + labs(
+  title = "Young Drivers vs. Traffic Fatalities",
+  x= "Young Drivers",
+  y = "Traffic Fatalities"
+) + theme_minimal()
+
+The scatter plot displays the relationship between young drivers and traffic fatalities. Each point represents an observation in the dataset, while the line show the overall linear trend. This visualization makes it easier to look for a possible relationship between the two variables. 
+
+## Conclusion and Reflection 
+
+Overall, using R Markdown was a helpful way to combine coding and writing into one document. I liked being able to include explanations, mathematical expressions, and graphs alongside the R code instead of having everything separated. It also makes the final report easier to follow because the code and its results are organized into sections. 
+
+Compared to writing a plain report, R Markdown makes it easier to keep the analysis and explanations together. One advantage is that if I change my code or update the dataset, I can knit the document again and automatically update the results. This saves time and makes the report more repoducible. One thing that took some getting used to was learning how to format the document and organize the code chunks correctly. However, I think R Markdown is a useful tool, especially for assignments that invilve data analysis, becuase it makes reports more organized and easier to understand. 
