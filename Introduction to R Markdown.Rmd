@@ -3,8 +3,8 @@ title: "My R Markdown Primer"
 author: "Alyssa Hone"
 date: "2026-11-16"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -27,7 +27,7 @@ I am interested in looking at the relationship between the percentage of young d
 
 R Markdown also supports mathematical expressions using LaTeX. This can be helpful when explaining statistical concepts or including formulas in a report. 
 
-For example, a basic linear equation can be written as $\apha + \beta = \gamma$. 
+For example, a basic linear equation can be written as $\alpha + \beta = \gamma$. 
 
 A simple linear regression equation can be written as:
 
